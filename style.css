@@ -1,0 +1,71 @@
+*{box-sizing:border-box}
+:root{color-scheme:dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#090811;color:#f6f5ff}
+body{margin:0;min-height:100vh;padding:42px 18px 30px;background:radial-gradient(ellipse at 50% 0%,#25203c 0,#100f1c 42%,#090811 78%)}
+button{font:inherit}
+.app-shell{width:min(960px,100%);margin:0 auto}
+.page-header{text-align:center;margin:0 auto 28px}
+.eyebrow{margin:0 0 9px;color:#8d9bff;font-size:10px;font-weight:800;letter-spacing:2.4px}
+h1{font-size:clamp(29px,5vw,48px);letter-spacing:-1.8px;margin:0;color:#f8f7ff}
+h1 span{color:#8ba7ff;text-shadow:0 0 24px #4b70ff65}
+.intro{color:#9996ae;font-size:14px;margin:10px 0 0}
+.playground{padding:20px;border:1px solid #ff8b3c;border-radius:5px;background:linear-gradient(145deg,#171522,#100f19 70%);box-shadow:0 18px 65px #0008}
+.effect-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:9px;border:1px solid #ffffff12;border-radius:13px;background:#ffffff05}
+.tab{border:1px solid transparent;border-radius:9px;padding:11px 8px;color:#9b98ac;background:transparent;cursor:pointer;font-size:13px;transition:.2s}
+.tab:hover{color:#fff;background:#ffffff0b}
+.tab.active{color:#fff;border-color:#ffffff25;background:#ffffff0c;box-shadow:inset 0 0 0 1px #ffffff08}
+.demo-panel{margin-top:25px}
+.demo-heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:13px}
+.demo-heading .eyebrow{margin-bottom:5px}
+h2{font-size:clamp(21px,3vw,29px);margin:0;letter-spacing:-.7px}
+.replay-button{border:1px solid #ffffff22;border-radius:9px;background:#ffffff08;color:#d9dcff;padding:8px 12px;cursor:pointer;font-size:13px}
+.replay-button:hover{background:#ffffff14}
+.replay-button:first-letter{font-size:17px}
+.visual-stage{position:relative;min-height:280px;padding:12px;border-radius:17px;background:#080711;overflow:hidden}
+.visual-frame{width:100%;height:clamp(240px,42vw,410px);border-radius:12px;background-color:#20243a;background-size:cover;background-position:center;position:relative;isolation:isolate;animation-duration:3s;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
+.visual-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,#ffffff12,transparent 45%,#0002);pointer-events:none}
+.stage-caption{display:flex;align-items:center;gap:7px;position:absolute;right:23px;bottom:21px;padding:7px 10px;border-radius:30px;background:#080811b8;color:#c5c5d4;font-size:10px;backdrop-filter:blur(8px)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#54e5ad;box-shadow:0 0 9px #54e5ad}
+.code-panel{margin-top:17px;overflow:hidden;border:1px solid #ffffff0c;border-radius:15px;background:#05050b}
+.code-header{height:46px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff10;color:#aaa8ba;font-size:11px}
+.code-header>div{display:flex;align-items:center;gap:5px}
+.code-header strong{margin-left:8px;font-weight:600;color:#bdbbd0}
+.code-dot{width:7px;height:7px;border-radius:50%;background:#6e7191}
+.code-dot:nth-child(1){background:#ff6d73}.code-dot:nth-child(2){background:#ffca68}.code-dot:nth-child(3){background:#56d69b}
+#copyButton{border:1px solid #ffffff20;border-radius:7px;padding:6px 10px;color:#d8dcff;background:#ffffff08;cursor:pointer;font-size:10px}
+#copyButton:hover{background:#ffffff16}
+pre{margin:0;padding:18px 20px;overflow:auto;min-height:190px;max-height:360px;color:#cbd4e8;font:12px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;tab-size:2}
+footer{text-align:center;color:#666478;font-size:11px;margin:19px 0 0}
+@media(max-width:560px){body{padding:24px 12px}.playground{padding:12px}.effect-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:6px}.tab{font-size:11px;padding:10px 5px}.visual-stage{padding:7px;min-height:220px}.visual-frame{height:250px}.stage-caption{right:15px;bottom:15px}pre{padding:14px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.visual-frame{animation-duration:10s}}
+
+/* 1. Circle reveal */
+.effect-circle{background-image:url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85");animation-name:circleReveal}
+@keyframes circleReveal{0%,100%{clip-path:circle(8% at 50% 50%)}50%{clip-path:circle(72% at 50% 50%)}}
+
+/* 2. Hexagon pulse — coordinates visible in the supplied video */
+.effect-hexagon{background-image:url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85");animation-name:hexPulse;animation-duration:3s}
+@keyframes hexPulse{0%,100%{clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}50%{clip-path:polygon(50% 10%,92% 30%,92% 70%,50% 90%,8% 70%,8% 30%)}}
+
+/* 3. Star spin */
+.effect-star{background-image:url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85");animation-name:starSpin;animation-duration:4s}
+@keyframes starSpin{0%,100%{clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}50%{clip-path:polygon(50% 5%,63% 38%,98% 38%,70% 59%,80% 92%,50% 73%,20% 92%,30% 59%,2% 38%,37% 38%)}}
+
+/* 4. Diamond breathe */
+.effect-diamond{background-image:url("https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1400&q=85");animation-name:diamondBreathe}
+@keyframes diamondBreathe{0%,100%{clip-path:polygon(50% 5%,95% 50%,50% 95%,5% 50%)}50%{clip-path:polygon(50% 18%,82% 50%,50% 82%,18% 50%)}}
+
+/* 5. Diagonal sweep */
+.effect-diagonal{background-image:url("https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=85");animation-name:diagSweep;animation-duration:2.5s}
+@keyframes diagSweep{0%,100%{clip-path:polygon(0 0,0 0,0 100%,0 100%)}50%{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}}
+
+/* 6. Curtain drop */
+.effect-curtain{background-image:url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85");animation-name:curtainDrop;animation-duration:2.5s}
+@keyframes curtainDrop{0%,100%{clip-path:inset(0 0 100% 0)}50%{clip-path:inset(0 0 0 0)}}
+
+/* 7. Iris open */
+.effect-iris{background-image:url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1400&q=85");animation-name:irisOpen;animation-duration:2.5s}
+@keyframes irisOpen{0%,100%{clip-path:ellipse(8% 8% at 50% 50%)}50%{clip-path:ellipse(75% 65% at 50% 50%)}}
+
+/* 8. Venetian blinds */
+.effect-blinds{background-image:url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=85");animation-name:blindsOpen;animation-duration:2s}
+@keyframes blindsOpen{0%,100%{clip-path:polygon(0 0,100% 0,100% 0,0 0,0 20%,100% 20%,100% 20%,0 20%,0 40%,100% 40%,100% 40%,0 40%,0 60%,100% 60%,100% 60%,0 60%,0 80%,100% 80%,100% 80%,0 80%,0 100%,100% 100%,100% 100%,0 100%)}50%{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}}

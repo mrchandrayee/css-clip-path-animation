@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c0b16">
+  <title>CSS Clip-Path Animation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <p class="eyebrow">CSS MOTION PLAYGROUND</p>
+      <h1>CSS <span>clip-path</span> Animation</h1>
+      <p class="intro">Explore eight creative image reveal effects built with pure CSS.</p>
+    </header>
+
+    <section class="playground" aria-label="Clip path animation playground">
+      <nav class="effect-tabs" id="effectTabs" aria-label="Choose an animation">
+        <button class="tab active" data-effect="circle">Circle reveal</button>
+        <button class="tab" data-effect="hexagon">Hexagon pulse</button>
+        <button class="tab" data-effect="star">Star spin</button>
+        <button class="tab" data-effect="diamond">Diamond breathe</button>
+        <button class="tab" data-effect="diagonal">Diagonal sweep</button>
+        <button class="tab" data-effect="curtain">Curtain drop</button>
+        <button class="tab" data-effect="iris">Iris open</button>
+        <button class="tab" data-effect="blinds">Venetian blinds</button>
+      </nav>
+
+      <section class="demo-panel">
+        <div class="demo-heading">
+          <div>
+            <p class="eyebrow">LIVE PREVIEW</p>
+            <h2 id="effectTitle">Circle reveal</h2>
+          </div>
+          <button class="replay-button" id="replayButton" type="button" title="Replay animation">↻ <span>Replay</span></button>
+        </div>
+        <div class="visual-stage">
+          <div class="visual-frame effect-circle" id="visualFrame" role="img" aria-label="Animated landscape image"></div>
+          <div class="stage-caption"><span class="live-dot"></span> CSS animation running</div>
+        </div>
+      </section>
+
+      <section class="code-panel">
+        <div class="code-header">
+          <div><span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span><strong>style.css</strong></div>
+          <button id="copyButton" type="button">Copy CSS</button>
+        </div>
+        <pre><code id="codeOutput"></code></pre>
+      </section>
+    </section>
+    <footer>Built with HTML, CSS clip-path and a tiny JavaScript controller.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
